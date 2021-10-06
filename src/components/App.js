@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Lesson_7 from "./Lesson_7";
 import Lesson_8 from "./Lesson_8";
 import Lesson_9 from "./Lesson_9";
+import Lesson_10 from "./Lesson_10";
 import Lesson_11 from "./Lesson_11";
 import Lesson_12 from "./Lesson_12";
 
@@ -44,6 +45,7 @@ class App extends React.Component {
                 <option>{'Lesson 7'}</option>
                 <option>{'Lesson 8'}</option>
                 <option>{'Lesson 9'}</option>
+                <option>{'Lesson 10'}</option>
                 <option>{'Lesson 11'}</option>
                 <option>{'Lesson 12'}</option>
             </Select>
@@ -64,6 +66,7 @@ class App extends React.Component {
             case 'Lesson 7': return <Lesson_7/>;
             case 'Lesson 8': return <Lesson_8/>;
             case 'Lesson 9': return <Lesson_9/>;
+            case 'Lesson 10': return <Lesson_10/>;
             case 'Lesson 11': return <Lesson_11/>;
             case 'Lesson 12': return <Lesson_12/>;
         }
