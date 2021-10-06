@@ -40,13 +40,17 @@ class Lesson_13 extends React.Component {
         //Scene
         const scene = new THREE.Scene();
 
+        //Textures
+        const textureLoader = new THREE.TextureLoader();
+        const matcapTexture = textureLoader.load('/matcaps/6.png');
+
         //Fonts
         const fontLoader = new FontLoader();
         fontLoader.load('/fonts/helvetiker_regular.typeface.json', (font) => {
             const textGeometry = new TextGeometry(
-              'Test', {
+              'Hello, Tree.js!', {
                   font,
-                  size: 0.5,
+                  size: 1,
                   height: 0.2,
                   curveSegments: 6,
                   bevelEnabled: true,
@@ -56,9 +60,35 @@ class Lesson_13 extends React.Component {
                   bevelSegments: 5
               }
             );
-            const material = new THREE.MeshBasicMaterial({wireframe: true});
+
+            const material = new THREE.MeshMatcapMaterial({matcap: matcapTexture});
             const mesh = new THREE.Mesh(textGeometry, material);
+            /*textGeometry.computeBoundingBox();
+            textGeometry.translate(
+                -(textGeometry.boundingBox.max.x + textGeometry.boundingBox.min.x) / 2,
+                -(textGeometry.boundingBox.max.y + textGeometry.boundingBox.min.y) / 2,
+                -(textGeometry.boundingBox.max.z + textGeometry.boundingBox.min.z) / 2
+            );*/
+            textGeometry.center();
             scene.add(mesh);
+
+            console.time('donuts');
+            const donutGeometry = new THREE.TorusBufferGeometry(0.3, 0.2, 20, 45);
+
+            for (let i = 0; i < 100; i++) {
+                const donut = new THREE.Mesh(donutGeometry, material);
+
+                donut.position.x = Math.random() * 10 - 5;
+                donut.position.y = Math.random() * 10 - 5;
+                donut.position.z = Math.random() * 10 - 5;
+                donut.rotation.x = (Math.random() * Math.PI);
+                donut.rotation.y = (Math.random() * Math.PI);
+                const scale = Math.max(Math.random(), 0.3);
+                donut.scale.set(scale, scale, scale);
+
+                scene.add(donut);
+            }
+            console.timeEnd('donuts');
         });
 
         //Axes helper
@@ -67,7 +97,7 @@ class Lesson_13 extends React.Component {
 
         //Camera
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
-        camera.position.z = 3;
+        camera.position.z = 10;
         scene.add(camera);
 
         //Controls
