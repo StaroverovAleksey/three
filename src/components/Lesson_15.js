@@ -137,7 +137,7 @@ class Lesson_15 extends React.Component {
         sphereShadow.position.y = plane.position.y + 0.01;
 
         scene.add(sphere, plane);
-        scene.add(sphereShadow);
+        //scene.add(sphereShadow);
 
         //Axes helper
         const axesHelper = new THREE.AxesHelper(50);
@@ -161,7 +161,7 @@ class Lesson_15 extends React.Component {
         });
         renderer.setSize(sizes.width, sizes.height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        renderer.shadowMap.enabled = false;
+        renderer.shadowMap.enabled = true;
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         renderer.render(scene, camera);
 
@@ -173,14 +173,14 @@ class Lesson_15 extends React.Component {
             const elapsedTime = clock.getElapsedTime();
 
             //Update sphere
-            sphere.position.x = Math.cos(elapsedTime);
+            /*sphere.position.x = Math.cos(elapsedTime);
             sphere.position.z = Math.sin(elapsedTime);
             sphere.position.y = Math.abs(Math.sin(elapsedTime * 4));
 
             //Update shadow
             sphereShadow.position.x = Math.cos(elapsedTime);
             sphereShadow.position.z = Math.sin(elapsedTime);
-            sphereShadow.material.opacity = (1.4 - sphere.position.y) * 0.5;
+            sphereShadow.material.opacity = (1.4 - sphere.position.y) * 0.5;*/
 
             renderer.render(scene, camera);
             window.requestAnimationFrame(tick);
