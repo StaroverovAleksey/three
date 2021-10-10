@@ -13,6 +13,9 @@ import Lesson_15 from "./Lesson_15";
 import Lesson_16 from "./Lesson_16";
 import Lesson_17 from "./Lesson_17";
 import Lesson_18 from "./Lesson_18";
+import Lesson_19 from "./Lesson_19";
+import Lesson_20 from "./Lesson_20";
+import Lesson_21 from "./Lesson_21";
 
 const Select = styled.select`
   position: absolute;
@@ -60,6 +63,9 @@ class App extends React.Component {
                 <option>{'Lesson 16'}</option>
                 <option>{'Lesson 17'}</option>
                 <option>{'Lesson 18'}</option>
+                <option>{'Lesson 19'}</option>
+                <option>{'Lesson 20'}</option>
+                <option>{'Lesson 21'}</option>
             </Select>
             {this.getLesson()}
         </Container>
@@ -87,6 +93,9 @@ class App extends React.Component {
             case 'Lesson 16': return <Lesson_16/>;
             case 'Lesson 17': return <Lesson_17/>;
             case 'Lesson 18': return <Lesson_18/>;
+            case 'Lesson 19': return <Lesson_19/>;
+            case 'Lesson 20': return <Lesson_20/>;
+            case 'Lesson 21': return <Lesson_21/>;
         }
     }
 }

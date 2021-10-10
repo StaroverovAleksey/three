@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "cannon": "^0.6.2",
     "gsap": "^3.8.0",
     "normalize.css": "^8.0.1",
     "react": "^17.0.2",
